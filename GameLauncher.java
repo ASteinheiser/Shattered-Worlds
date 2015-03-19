@@ -68,6 +68,36 @@ public class GameLauncher extends Canvas{
 		message = "Game Paused";
 		waitingForKeyPress = true;
 	}
+	public void gameLoop(){
+		long lastLoopTime = System.currentTimeMillis();
+		
+		while (gameRunning) {
+		
+		// work out how long its been since the last update, this will be used to calculate how far the entities should move this loop
+			long delta = System.currentTimeMillis() - lastLoopTime;
+			lastLoopTime = System.currentTimeMillis();
+
+			// Get hold of a graphics context for the accelerated surface and blank it out
+			Graphics2D g = (Graphics2D) strategy.getDrawGraphics();
+			g.setColor(Color.black);
+			g.fillRect(0,0,800,600);
+
+			if (waitingForKeyPress){
+				g.setColor(Color.white);
+				g.drawString(message,(800-g.getFontMetrics().stringWidth(message))/2,250);
+				g.drawString("Press any key",(800-g.getFontMetrics().stringWidth("Press any key"))/2,300);
+			}
+
+			g.dispose();
+			strategy.show();
+
+			//this should make it run at 100 fps
+			try{
+				Thread.sleep(10);
+			}
+			catch (Exception e){
+			}
+	}
 	public static void main(String argv[]){
 		Game g = new Game();
 		g.gameLoop();
