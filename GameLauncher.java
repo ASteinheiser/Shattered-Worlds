@@ -64,6 +64,10 @@ public class GameLauncher extends Canvas{
 		message = "You died...";
 		waitingForKeyPress = true;
 	}
+	public void pause(){
+		message = "Game Paused";
+		waitingForKeyPress = true;
+	}
 	public static void main(String argv[]){
 		Game g = new Game();
 		g.gameLoop();
