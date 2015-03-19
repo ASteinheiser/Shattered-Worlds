@@ -1,15 +1,17 @@
 import java.awt.*;
+import java.awt.image.BufferStrategy;
 import java.util.*;
 import javax.swing.*;
 
 public class GameLauncher extends Canvas{
 
+	private ArrayList entities = new ArrayList();
 	private BufferStrategy strategy;
 	private boolean aPressed = false, dPressed = false, wPressed = false, sPressed = false, mousePressed = false;
 	private boolean logicRequiredThisLoop = false, gameRunning = true, waitingForKeyPress = true;
 	private String message = "";
 
-	public Game(){
+	public GameLauncher(){
 		JFrame gameContainer = new JFrame("Shattered Worlds");
 		
 		JPanel gamePanel = (JPanel) gameContainer.getContentPane();
@@ -26,14 +28,14 @@ public class GameLauncher extends Canvas{
 		gameContainer.setVisible(true);
 
 		//closes the game if the user tries to close the window
-		gameContainer.addWindowListener(new WindowAdapter() {
-			public void windowClosing(WindowEvent e){
-				System.exit(0);
-			}
-		});
+//		gameContainer.addWindowListener(new WindowAdapter() {
+//			public void windowClosing(WindowEvent e){
+//				System.exit(0);
+//			}
+//		});
 
 		//allows the game to listen to key inputs
-		addKeyListener(new KeyInputHandler());
+//		addKeyListener(new KeyInputHandler());
 		requestFocus();
 		
 		//allows java awt to manage accelerated graphics
@@ -82,14 +84,8 @@ public class GameLauncher extends Canvas{
 			g.setColor(Color.black);
 			g.fillRect(0,0,800,600);
 
-			if (waitingForKeyPress){
-				g.setColor(Color.white);
-				g.drawString(message,(800-g.getFontMetrics().stringWidth(message))/2,250);
-				g.drawString("Press any key",(800-g.getFontMetrics().stringWidth("Press any key"))/2,300);
-			}
-
 			g.dispose();
-			strategy.show();
+//			strategy.show();
 
 			//this should make it run at 100 fps
 			try{
@@ -97,9 +93,10 @@ public class GameLauncher extends Canvas{
 			}
 			catch (Exception e){
 			}
+		}
 	}
 	public static void main(String argv[]){
-		Game g = new Game();
+		GameLauncher g = new GameLauncher();
 		g.gameLoop();
 	}
 }
