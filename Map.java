@@ -15,7 +15,7 @@ public class Map extends JPanel{
 
 	public Map(){
 		super.setPreferredSize(new Dimension(mapWidth,mapHeight));
-		ImageIcon img = new ImageIcon("Maps\\grass.jpg");
+		ImageIcon img = new ImageIcon("Maps/grass.jpg");
 		map=img.getImage();
 
 		player = new Player();

@@ -35,15 +35,7 @@ public class GameWindow extends JFrame implements KeyListener,ActionListener{
 		addKeyListener(this);
 
 		add(map, BorderLayout.CENTER);
-		
-		
-		
-		
-		
-		
-		
 	}
-
 	@Override
 	public void keyPressed(KeyEvent e) {
 		int keyCode = e.getKeyCode();
@@ -84,7 +76,7 @@ public class GameWindow extends JFrame implements KeyListener,ActionListener{
 		switch(direction){
 		case"left":
 			if(!minus){
-				this.pState = "PlayerAnimations\\Left_move_"+move_count+".png";
+				this.pState = "PlayerAnimations/Left_move_"+move_count+".png";
 			if(move_count==3){
 				minus=true;
 			}
@@ -92,7 +84,7 @@ public class GameWindow extends JFrame implements KeyListener,ActionListener{
 				move_count++;
 			}
 			}else{
-				this.pState = "PlayerAnimations\\Left_move_"+move_count+".png";
+				this.pState = "PlayerAnimations/Left_move_"+move_count+".png";
 				if(move_count==1){
 					minus=false;
 				}
@@ -103,7 +95,7 @@ public class GameWindow extends JFrame implements KeyListener,ActionListener{
 			break;
 		case "right":
 			if(!minus){
-				this.pState = "PlayerAnimations\\Right_move_"+move_count+".png";
+				this.pState = "PlayerAnimations/Right_move_"+move_count+".png";
 			if(move_count==3){
 				minus=true;
 			}
@@ -111,7 +103,7 @@ public class GameWindow extends JFrame implements KeyListener,ActionListener{
 				move_count++;
 			}
 			}else{
-				this.pState = "PlayerAnimations\\Right_move_"+move_count+".png";
+				this.pState = "PlayerAnimations/Right_move_"+move_count+".png";
 				if(move_count==1){
 					minus=false;
 				}
@@ -122,7 +114,7 @@ public class GameWindow extends JFrame implements KeyListener,ActionListener{
 			break;
 		case "down":
 			if(!minus){
-				this.pState = "PlayerAnimations\\Down_move_"+move_count+".png";
+				this.pState = "PlayerAnimations/Down_move_"+move_count+".png";
 			if(move_count==3){
 				minus=true;
 			}
@@ -130,7 +122,7 @@ public class GameWindow extends JFrame implements KeyListener,ActionListener{
 				move_count++;
 			}
 			}else{
-				this.pState = "PlayerAnimations\\Down_move_"+move_count+".png";
+				this.pState = "PlayerAnimations/Down_move_"+move_count+".png";
 				if(move_count==1){
 					minus=false;
 				}
@@ -141,7 +133,7 @@ public class GameWindow extends JFrame implements KeyListener,ActionListener{
 			break;
 		case "up":
 			if(!minus){
-				this.pState = "PlayerAnimations\\Up_move_"+move_count+".png";
+				this.pState = "PlayerAnimations/Up_move_"+move_count+".png";
 			if(move_count==3){
 				minus=true;
 			}
@@ -149,7 +141,7 @@ public class GameWindow extends JFrame implements KeyListener,ActionListener{
 				move_count++;
 			}
 			}else{
-				this.pState = "PlayerAnimations\\Up_move_"+move_count+".png";
+				this.pState = "PlayerAnimations/Up_move_"+move_count+".png";
 				if(move_count==1){
 					minus=false;
 				}
