@@ -8,7 +8,6 @@ public class GameLauncher{
 			public void run() {
 				new GameWindow();
 			}
-			
 		});
 	}
 }

@@ -19,9 +19,6 @@ public class Map extends JPanel{
 		map=img.getImage();
 
 		player = new Player();
-		
-	
-		
 	}
 	
 	@Override
@@ -30,8 +27,7 @@ public class Map extends JPanel{
 		
 		g.drawImage(map, 0, 0, getWidth(),getHeight(),null);
 		player.paintComponent(g);;
-		g.dispose();
-		
+		g.dispose();		
 	}
 
 	public Player getPlayer() {
@@ -41,8 +37,4 @@ public class Map extends JPanel{
 	public void setPlayer(Player player) {
 		this.player = player;
 	}
-
-	
-
-
 }

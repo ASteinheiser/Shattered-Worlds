@@ -163,8 +163,8 @@ public class GameWindow extends JFrame implements KeyListener,ActionListener{
 		player.LoadImg(pState);
 		switch(direction){
 		case "right":
-		player.moveRight(player.getPlayerSpeed());
-		break;
+			player.moveRight(player.getPlayerSpeed());
+			break;
 		case "left":
 			player.moveLeft(player.getPlayerSpeed());
 			break;
