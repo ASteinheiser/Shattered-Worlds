@@ -5,16 +5,18 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.JFrame;
 import javax.swing.Timer;
 
-public class GameWindow extends JFrame implements KeyListener, ActionListener {
+public class GameWindow extends JFrame implements KeyListener, ActionListener,MouseListener {
 	private Map map;
 	private Player player;
 	private String pState, direction;
 	private int move_count;
-	private boolean minus = false;
+	private boolean minus = false,teleport = false;
 	private Timer time;
 	private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
@@ -36,6 +38,7 @@ public class GameWindow extends JFrame implements KeyListener, ActionListener {
 		time = new Timer(20, this);
 
 		addKeyListener(this);
+		addMouseListener(this);
 
 		add(map, BorderLayout.CENTER);
 
@@ -45,23 +48,27 @@ public class GameWindow extends JFrame implements KeyListener, ActionListener {
 	public void keyPressed(KeyEvent e) {
 		int keyCode = e.getKeyCode();
 
-		if (keyCode == KeyEvent.VK_LEFT) {
+		if (keyCode == KeyEvent.VK_A) {
 
 			direction = "left";
 			time.start();
 		}
 
-		if (keyCode == KeyEvent.VK_RIGHT) {
+		if (keyCode == KeyEvent.VK_D) {
 			direction = "right";
 			time.start();
 		}
-		if (keyCode == KeyEvent.VK_DOWN) {
+		if (keyCode == KeyEvent.VK_S) {
 			direction = "down";
 			time.start();
 		}
-		if (keyCode == KeyEvent.VK_UP) {
+		if (keyCode == KeyEvent.VK_W) {
 			direction = "up";
 			time.start();
+		}
+		
+		if(keyCode == KeyEvent.VK_SPACE){
+			teleport = true;
 		}
 
 	}
@@ -197,6 +204,43 @@ public class GameWindow extends JFrame implements KeyListener, ActionListener {
 			break;
 
 		}
+		
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent arg0) {
+		if(teleport){
+			player.setXpos(arg0.getX()-40);
+			player.setYpos(arg0.getY()-40);
+			map.repaint();
+			teleport=false;
+			
+		}
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
