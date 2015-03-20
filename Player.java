@@ -14,7 +14,7 @@ public class Player extends JPanel {
 	public Player() {
 		Xpos = 0;
 		Ypos = 0;
-		playerSpeed = 10;
+		playerSpeed = 15;
 		super.setPreferredSize(new Dimension(80, 80));
 		state = "PlayerAnimations/Down_still.png";
 		LoadImg(this.state);

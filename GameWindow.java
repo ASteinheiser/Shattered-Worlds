@@ -1,4 +1,6 @@
 import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -14,16 +16,17 @@ public class GameWindow extends JFrame implements KeyListener,ActionListener{
 	private int move_count;
 	private boolean minus = false;
 	private Timer time;
+	private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	
 	public GameWindow() {
 		super("Shattered Worlds");
 
 		// setIgnoreRepaint(true); // Don't know what this means
 		pack();
-		setResizable(true);
-		requestFocus(); 
+		setResizable(false);
 		setLayout(new BorderLayout());
-		setSize(800, 600);
+		setSize(screenSize.width, screenSize.height);
+		
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -36,6 +39,7 @@ public class GameWindow extends JFrame implements KeyListener,ActionListener{
 
 		add(map, BorderLayout.CENTER);
 	}
+	
 	@Override
 	public void keyPressed(KeyEvent e) {
 		int keyCode = e.getKeyCode();
