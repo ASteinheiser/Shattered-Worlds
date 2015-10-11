@@ -38,6 +38,14 @@ public class GameWindow extends JFrame implements KeyListener,ActionListener,Mou
 		add(map, BorderLayout.CENTER);
   }
 
+	public int getScreenWidth(){
+		return screenSize.width;
+	}
+
+	public int getScreenHeight(){
+		return screenSize.height;
+	}
+
 	public Player getPlayer() {
 		return player;
 	}

@@ -57,6 +57,10 @@ public class Player extends JPanel {
     return playerSpeed;
   }
 
+	public int getPlayerSize() {
+		return playerSize;
+	}
+
   public void setPlayerSpeed(int playerSpeed) {
     this.playerSpeed = playerSpeed;
   }
