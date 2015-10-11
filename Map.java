@@ -18,7 +18,7 @@ public class Map extends JPanel{
 		ImageIcon img = new ImageIcon("Maps/grass.jpg");
 
 		map = img.getImage();
-		player = new Player();
+		player = new Player("Ninja");
 	}
 
 	@Override

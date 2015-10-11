@@ -10,17 +10,19 @@ public class Player extends JPanel {
 	private int playerSize, playerSpeed, moveCount, Xpos, Ypos;
 	private boolean teleport, minus;
 	private Image player;
-	private String state, direction, pState;
+	private String state, direction, pState, playerClass;
 
-	public Player() {
+	public Player(String playerClass) {
 		Xpos = 0;
 		Ypos = 0;
 		moveCount = 1;
 		playerSpeed = 15;
     playerSize = 80;
 
+		this.playerClass = playerClass;
+
 		super.setPreferredSize(new Dimension(playerSize, playerSize));
-		state = "PlayerAnimations/Down_still.png";
+		state = "PlayerAnimations/" + playerClass + "/Down_still.png";
 
     LoadImg(this.state);
 	}
@@ -112,7 +114,7 @@ public class Player extends JPanel {
 
 		case "left":
 			if (!minus) {
-				this.pState = "PlayerAnimations/Left_move_" + moveCount
+				this.pState = "PlayerAnimations/" + playerClass + "/Left_move_" + moveCount
 						+ ".png";
 				if (moveCount == 3) {
 					minus = true;
@@ -120,7 +122,7 @@ public class Player extends JPanel {
 					moveCount++;
 				}
 			}else{
-				this.pState = "PlayerAnimations/Left_move_" + moveCount
+				this.pState = "PlayerAnimations/" + playerClass + "/Left_move_" + moveCount
 						+ ".png";
 				if (moveCount == 1) {
 					minus = false;
@@ -132,7 +134,7 @@ public class Player extends JPanel {
 
 		case "right":
 			if (!minus) {
-				this.pState = "PlayerAnimations/Right_move_" + moveCount
+				this.pState = "PlayerAnimations/" + playerClass + "/Right_move_" + moveCount
 						+ ".png";
 				if (moveCount == 3) {
 					minus = true;
@@ -140,7 +142,7 @@ public class Player extends JPanel {
 					moveCount++;
 				}
 			}else{
-				this.pState = "PlayerAnimations/Right_move_" + moveCount
+				this.pState = "PlayerAnimations/" + playerClass + "/Right_move_" + moveCount
 						+ ".png";
 				if (moveCount == 1) {
 					minus = false;
@@ -152,7 +154,7 @@ public class Player extends JPanel {
 
 		case "down":
 			if (!minus) {
-				this.pState = "PlayerAnimations/Down_move_" + moveCount
+				this.pState = "PlayerAnimations/" + playerClass + "/Down_move_" + moveCount
 						+ ".png";
 				if (moveCount == 3) {
 					minus = true;
@@ -160,7 +162,7 @@ public class Player extends JPanel {
 					moveCount++;
 				}
 			}else{
-				this.pState = "PlayerAnimations/Down_move_" + moveCount
+				this.pState = "PlayerAnimations/" + playerClass + "/Down_move_" + moveCount
 						+ ".png";
 				if (moveCount == 1) {
 					minus = false;
@@ -172,14 +174,14 @@ public class Player extends JPanel {
 
 		case "up":
 			if (!minus) {
-				this.pState = "PlayerAnimations/Up_move_" + moveCount + ".png";
+				this.pState = "PlayerAnimations/" + playerClass + "/Up_move_" + moveCount + ".png";
 				if (moveCount == 3) {
 					minus = true;
 				}else{
 					moveCount++;
 				}
 			}else{
-				this.pState = "PlayerAnimations/Up_move_" + moveCount + ".png";
+				this.pState = "PlayerAnimations/" + playerClass + "/Up_move_" + moveCount + ".png";
 				if (moveCount == 1) {
 					minus = false;
 				}else{
