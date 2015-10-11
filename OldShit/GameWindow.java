@@ -66,7 +66,7 @@ public class GameWindow extends JFrame implements KeyListener, ActionListener,Mo
 			direction = "up";
 			time.start();
 		}
-		
+
 		if(keyCode == KeyEvent.VK_SPACE){
 			teleport = true;
 		}
@@ -200,11 +200,11 @@ public class GameWindow extends JFrame implements KeyListener, ActionListener,Mo
 				player.LoadImg(pState);
 				map.repaint();
 			}
-			
+
 			break;
 
 		}
-		
+
 	}
 
 	@Override
@@ -214,33 +214,33 @@ public class GameWindow extends JFrame implements KeyListener, ActionListener,Mo
 			player.setYpos(arg0.getY()-40);
 			map.repaint();
 			teleport=false;
-			
+
 		}
-		
+
 	}
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }
