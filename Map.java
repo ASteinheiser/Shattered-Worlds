@@ -13,12 +13,12 @@ public class Map extends JPanel{
 	private Image map;
   private Player player;
 
-	public Map(){
+	public Map(GameWindow gameWindow){
 		super.setPreferredSize(new Dimension(mapWidth,mapHeight));
 		ImageIcon img = new ImageIcon("Maps/grass.jpg");
 
 		map = img.getImage();
-		player = new Player("Ninja");
+		player = new Player("Ninja", gameWindow);
 	}
 
 	@Override

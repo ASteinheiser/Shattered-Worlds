@@ -7,12 +7,15 @@ import javax.swing.JPanel;
 
 public class Player extends JPanel {
 
+	private GameWindow gameWindow;
 	private int playerSize, playerSpeed, moveCount, Xpos, Ypos;
-	private boolean teleport, minus;
-	private Image player;
+	private boolean minus;
+	private Image playerImg;
 	private String state, direction, pState, playerClass;
 
-	public Player(String playerClass) {
+	public Player(String playerClass, GameWindow gameWindow) {
+		this.gameWindow = gameWindow;
+
 		Xpos = 0;
 		Ypos = 0;
 		moveCount = 1;
@@ -31,14 +34,23 @@ public class Player extends JPanel {
 	protected void paintComponent(Graphics g) {
 		super.paintComponents(g);
 
-		g.drawImage(player, Xpos, Ypos, playerSize, playerSize, null);
+		g.drawImage(playerImg, Xpos, Ypos, playerSize, playerSize, null);
 	}
 
 	public void LoadImg(String state){
 		this.state=state;
 
     ImageIcon img = new ImageIcon(state);
-    player = img.getImage();
+    playerImg = img.getImage();
+	}
+
+	public void spaceAbility() {
+		switch(playerClass) {
+			case "Ninja":
+				Ninja ninja = new Ninja(gameWindow);
+				ninja.spaceAbility();
+				break;
+		}
 	}
 
   public int getPlayerSpeed() {
@@ -65,14 +77,6 @@ public class Player extends JPanel {
 		Ypos = ypos;
 	}
 
-	public Image getPlayer() {
-		return player;
-	}
-
-	public void setPlayer(Image player) {
-		this.player = player;
-	}
-
 	public void moveRight(int amount) {
 		Xpos += amount;
 	}
@@ -95,14 +99,6 @@ public class Player extends JPanel {
 
 	public String getDirection() {
 		return direction;
-	}
-
-	public void toggleTeleport() {
-		teleport = !teleport;
-	}
-
-	public boolean getTeleport() {
-		return teleport;
 	}
 
 	public String getPState() {

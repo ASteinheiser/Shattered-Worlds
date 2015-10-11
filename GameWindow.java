@@ -28,7 +28,7 @@ public class GameWindow extends JFrame implements KeyListener,ActionListener,Mou
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		map = new Map();
+		map = new Map(this);
 		player = map.getPlayer();
 		time = new Timer(20, this);
 
@@ -37,6 +37,14 @@ public class GameWindow extends JFrame implements KeyListener,ActionListener,Mou
 
 		add(map, BorderLayout.CENTER);
   }
+
+	public Player getPlayer() {
+		return player;
+	}
+
+	public void setPlayer(Player player) {
+		this.player = player;
+	}
 
   @Override
   public void keyPressed(KeyEvent e) {
@@ -60,7 +68,8 @@ public class GameWindow extends JFrame implements KeyListener,ActionListener,Mou
     }
 
     if(keyCode == KeyEvent.VK_SPACE){
-      player.toggleTeleport();
+			player.spaceAbility();
+      map.repaint();
     }
   }
 
@@ -115,13 +124,7 @@ public class GameWindow extends JFrame implements KeyListener,ActionListener,Mou
 
   @Override
   public void mouseClicked(MouseEvent arg0) {
-    if(player.getTeleport()){
-      player.setXpos(arg0.getX()-40);
-      player.setYpos(arg0.getY()-40);
-
-      map.repaint();
-      player.toggleTeleport();
-    }
+		// TODO Auto-generated method stub
   }
 
   @Override
