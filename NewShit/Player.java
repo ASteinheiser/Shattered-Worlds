@@ -7,9 +7,10 @@ import javax.swing.JPanel;
 
 public class Player extends JPanel {
 
-	private int playerSize, playerSpeed, Xpos, Ypos;
+	private int playerSize, playerSpeed, moveCount, Xpos, Ypos;
+	private boolean teleport, minus;
 	private Image player;
-	private String state;
+	private String state, direction, pState;
 
 	public Player() {
 		Xpos = 0;
@@ -44,6 +45,7 @@ public class Player extends JPanel {
   public void setPlayerSpeed(int playerSpeed) {
     this.playerSpeed = playerSpeed;
   }
+
   public int getXpos() {
 		return Xpos;
 	}
@@ -82,5 +84,108 @@ public class Player extends JPanel {
 
 	public void moveUp(int amount) {
 		Ypos -= amount;
+	}
+
+	public void setDirection(String direction) {
+		this.direction = direction;
+	}
+
+	public String getDirection() {
+		return direction;
+	}
+
+	public void toggleTeleport() {
+		teleport = !teleport;
+	}
+
+	public boolean getTeleport() {
+		return teleport;
+	}
+
+	public String getPState() {
+		return pState;
+	}
+
+	public void findState() {
+		switch (direction) {
+
+		case "left":
+			if (!minus) {
+				this.pState = "PlayerAnimations/Left_move_" + moveCount
+						+ ".png";
+				if (moveCount == 3) {
+					minus = true;
+				}else{
+					moveCount++;
+				}
+			}else{
+				this.pState = "PlayerAnimations/Left_move_" + moveCount
+						+ ".png";
+				if (moveCount == 1) {
+					minus = false;
+				}else{
+					moveCount--;
+				}
+			}
+			break;
+
+		case "right":
+			if (!minus) {
+				this.pState = "PlayerAnimations/Right_move_" + moveCount
+						+ ".png";
+				if (moveCount == 3) {
+					minus = true;
+				}else{
+					moveCount++;
+				}
+			}else{
+				this.pState = "PlayerAnimations/Right_move_" + moveCount
+						+ ".png";
+				if (moveCount == 1) {
+					minus = false;
+				}else{
+					moveCount--;
+				}
+			}
+			break;
+
+		case "down":
+			if (!minus) {
+				this.pState = "PlayerAnimations/Down_move_" + moveCount
+						+ ".png";
+				if (moveCount == 3) {
+					minus = true;
+				}else{
+					moveCount++;
+				}
+			}else{
+				this.pState = "PlayerAnimations/Down_move_" + moveCount
+						+ ".png";
+				if (moveCount == 1) {
+					minus = false;
+				}else{
+					moveCount--;
+				}
+			}
+			break;
+
+		case "up":
+			if (!minus) {
+				this.pState = "PlayerAnimations/Up_move_" + moveCount + ".png";
+				if (moveCount == 3) {
+					minus = true;
+				}else{
+					moveCount++;
+				}
+			}else{
+				this.pState = "PlayerAnimations/Up_move_" + moveCount + ".png";
+				if (moveCount == 1) {
+					minus = false;
+				}else{
+					moveCount--;
+				}
+			}
+			break;
+		}
 	}
 }
