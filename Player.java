@@ -15,6 +15,7 @@ public class Player extends JPanel {
 	public Player() {
 		Xpos = 0;
 		Ypos = 0;
+		moveCount = 1;
 		playerSpeed = 15;
     playerSize = 80;
 

@@ -19,6 +19,23 @@ public class GameWindow extends JFrame implements KeyListener,ActionListener,Mou
 
 	public GameWindow() {
 		super("Shattered Worlds");
+
+		pack();
+		setResizable(false);
+		setLayout(new BorderLayout());
+		setSize(screenSize.width, screenSize.height);
+
+		setVisible(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		map = new Map();
+		player = map.getPlayer();
+		time = new Timer(20, this);
+
+		addKeyListener(this);
+		addMouseListener(this);
+
+		add(map, BorderLayout.CENTER);
   }
 
   @Override
