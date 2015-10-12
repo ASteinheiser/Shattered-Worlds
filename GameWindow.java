@@ -120,7 +120,7 @@ public class GameWindow extends JFrame implements KeyListener,ActionListener,Mou
       }
       break;
     case "down":
-      if (player.getYpos() < (screenSize.height - player.getPlayerSize())) {
+      if (player.getYpos()+35 < (screenSize.height - player.getPlayerSize())) {
         player.moveDown(player.getPlayerSpeed());
         player.findState();
         player.LoadImg(player.getPState());
