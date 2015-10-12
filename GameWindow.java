@@ -96,7 +96,7 @@ public class GameWindow extends JFrame implements KeyListener,ActionListener,Mou
 
     switch (player.getDirection()) {
     case "right":
-      if (player.getXpos() <= screenSize.width * .95) {
+      if (player.getXpos() < (screenSize.width - player.getPlayerSize())) {
         player.moveRight(player.getPlayerSpeed());
         player.findState();
         player.LoadImg(player.getPState());
@@ -104,7 +104,7 @@ public class GameWindow extends JFrame implements KeyListener,ActionListener,Mou
       }
       break;
     case "left":
-      if (player.getXpos() >= 0 ) {
+      if (player.getXpos() > 0) {
         player.moveLeft(player.getPlayerSpeed());
         player.findState();
         player.LoadImg(player.getPState());
@@ -112,7 +112,7 @@ public class GameWindow extends JFrame implements KeyListener,ActionListener,Mou
       }
       break;
     case "up":
-      if (player.getYpos() >= 0 ) {
+      if (player.getYpos() > 0) {
         player.moveUp(player.getPlayerSpeed());
         player.findState();
         player.LoadImg(player.getPState());
@@ -120,7 +120,7 @@ public class GameWindow extends JFrame implements KeyListener,ActionListener,Mou
       }
       break;
     case "down":
-      if (player.getYpos() <= screenSize.height*.89 ) {
+      if (player.getYpos() < (screenSize.height - player.getPlayerSize())) {
         player.moveDown(player.getPlayerSpeed());
         player.findState();
         player.LoadImg(player.getPState());

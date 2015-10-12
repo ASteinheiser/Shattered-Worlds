@@ -32,7 +32,7 @@ public class Ninja {
       if (player.getYpos() - teleportRange < 0) {
         teleportRange = player.getYpos();
       }
-      player.setYpos(player.getYpos() - teleportRange - playerOffset);
+      player.setYpos(player.getYpos() - teleportRange);
 
     } else if (player.getDirection() == "down") {
       if (player.getYpos() + teleportRange > screenHeight) {
